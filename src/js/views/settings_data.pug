@@ -1,0 +1,17 @@
+.settings-data
+  ul.nav.nav-tabs
+      li(
+        ng-repeat="(key, value) in settings_data.data track by $index"
+        ng-class="{active: $index == 0}"
+      )
+        a(data-toggle="tab", href="#{{key}}") {{key}}
+
+  .tab-content
+    .tab-pane.fade(
+      ng-repeat="(key, value) in settings_data.data track by $index"
+      ng-class="{'in active': $index == 0}"
+      id="{{key}}"
+    )
+      settings-table(
+        table="value"
+      )

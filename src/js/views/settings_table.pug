@@ -1,0 +1,8 @@
+table.table.table-striped.table-bordered.table-condensed.settings-table
+  thead
+    tr
+      th(ng-repeat="(key, value) in settings_table.table[0]") {{key}}
+  tbody
+    tr(ng-repeat="(key, row) in settings_table.table")
+      td(ng-repeat="cell in row") {{cell}}
+  

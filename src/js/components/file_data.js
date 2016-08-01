@@ -1,9 +1,10 @@
-function FileDataController($scope, $element, $filter) {
+function FileDataController($filter) {
   let $ctrl = this;
   $ctrl.file = this.file;
   $ctrl.data = this.data;
   function removeFile() {
     $ctrl.file = null;
+    $ctrl.data = null;
   }
   function nextStep() {
     if(!$ctrl.data) {
@@ -15,11 +16,11 @@ function FileDataController($scope, $element, $filter) {
   this.nextStep = nextStep;
 }
 export const fileDataComponent = {
-    template: require('../views/file_data.pug'),
-    controller: FileDataController,
-    controllerAs: 'file_data',
-    bindings: {
-      file: '=',
-      data: '='
-    }
+  template: require('../views/file_data'),
+  controller: FileDataController,
+  controllerAs: 'file_data',
+  bindings: {
+    file: '=',
+    data: '='
+  }
 };

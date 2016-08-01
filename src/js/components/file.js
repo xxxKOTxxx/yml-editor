@@ -1,7 +1,7 @@
-function FileUploaderController($scope, $element, $attrs, $parse, XlsxToJson) {
+function FileController($scope, XlsxToJson) {
   let ctrl = this;
-  ctrl.file = null;
-  ctrl.data = null;
+  ctrl.file = this.file;
+  ctrl.data = this.data;
 
   let settings = {
     mime_types: [
@@ -56,6 +56,9 @@ function FileUploaderController($scope, $element, $attrs, $parse, XlsxToJson) {
 
   function handleFile(file) {
     console.log('handleFile',file)
+    if(file == (void(0))) {
+      return;
+    }
     if(file === null) {
       $scope.errors.file_size.valid = true;
       $scope.errors.mime_type.valid = true;
@@ -65,7 +68,7 @@ function FileUploaderController($scope, $element, $attrs, $parse, XlsxToJson) {
     if(file.valid) {
       XlsxToJson.getData(file)
         .then(function(data) {
-          ctrl.data = data;
+          ctrl.data = JSON.parse(data);
           $scope.$apply();
         });
     }
@@ -77,11 +80,14 @@ function FileUploaderController($scope, $element, $attrs, $parse, XlsxToJson) {
   ctrl.handleFile = handleFile;
 
 
-  $scope.$watch('file_uploader.file', handleFile)
+  $scope.$watch('file.file', handleFile)
 }
-export const fileUploaderComponent = {
-    template: require('../views/file_uploader.pug'),
-    controller: FileUploaderController,
-    controllerAs: 'file_uploader',
-    bindings: {}
+export const fileComponent = {
+  template: require('../views/file'),
+  controller: FileController,
+  controllerAs: 'file',
+  bindings: {
+    file: '=',
+    data: '='
+  }
 };

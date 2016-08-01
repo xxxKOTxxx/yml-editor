@@ -1,0 +1,50 @@
+.settings
+  .alert.alert-danger(
+    ng-if="!settings.data"
+  )
+    button.close(
+      type="button"
+      ng-click="hideError(error)"
+    ) &times;
+    p Please upload settings file!
+  
+  label.checkbox
+    input(
+    type="checkbox"
+    ng-model="settings.ready"
+    )
+    | Approve data
+  
+  label.checkbox
+    input(
+    type="checkbox"
+    ng-model="settings.remove_code"
+    )
+    | Remove product code
+  
+  label.checkbox
+    input(
+    type="checkbox"
+    ng-model="settings.show_table"
+    ng-change="settings.toggleTable(settings.show_table)"
+    )
+    | Show table
+  
+  #collapsing-table.collapse.in
+    settings-data(
+      ng-if="settings.data"
+      data="settings.data"
+    )
+
+  .controls
+    .btn.btn-primary(
+      ng-click="settings.prevStep()"
+    )
+      i.glyphicon.glyphicon-chevron-left
+      span Previous step
+    .btn.btn-primary.pull-right(
+      ng-click="settings.nextStep()"
+      ng-class="{disabled: !settings.data || !settings.ready}"
+    )
+      span Next step
+      i.glyphicon.glyphicon-chevron-right

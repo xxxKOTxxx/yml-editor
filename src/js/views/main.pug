@@ -1,0 +1,39 @@
+#accordion.panel-group.col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
+  .panel.panel-default
+    .panel-heading
+      h4.panel-title
+        a#file-link(
+          data-toggle='collapse'
+          data-parent='#accordion'
+          href='#file-uploader'
+        ) Step 1: Choose file
+    #file-uploader.panel-collapse.collapse.in
+      .panel-body
+        file(
+          file="main.file"
+          data="main.data"
+        )
+  .panel.panel-default(ng-show="main.data")
+    .panel-heading
+      h4.panel-title
+        a#settings-link(
+          data-toggle='collapse'
+          data-parent='#accordion'
+          href='#settings'
+        ) Step 2: Manage settings
+    #settings.panel-collapse.collapse
+      .panel-body
+        settings(
+          data="main.data"
+          ready="main.ready"
+        )
+  .panel.panel-default(ng-show="main.ready")
+    .panel-heading
+      h4.panel-title
+        a#process-link(
+          data-toggle='collapse'
+          data-parent='#accordion'
+          href='#result'
+        ) Step 3: Get result!
+    #result.panel-collapse.collapse
+      .panel-body

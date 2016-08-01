@@ -1,4 +1,4 @@
-function FileInputController($element, $timeout) {
+function FileInputController($timeout) {
   let $ctrl = this;
   $ctrl.file = this.file;
   this.input = null;
@@ -17,10 +17,10 @@ function FileInputController($element, $timeout) {
   this.selectFile = selectFile;
 }
 export const fileInputComponent = {
-    template: require('../views/file_input.pug'),
-    controller: FileInputController,
-    controllerAs: 'file_input',
-    bindings: {
-      file: '='
-    }
+  template: require('../views/file_input'),
+  controller: FileInputController,
+  controllerAs: 'file_input',
+  bindings: {
+    file: '='
+  }
 };

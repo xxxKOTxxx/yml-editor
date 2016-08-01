@@ -1,4 +1,4 @@
-export function DragAndDropController($element, $timeout) {
+export function FileDropController($element, $timeout) {
   let $ctrl = this;
   $ctrl.file = this.file;
   function handleDragOver(event) {
@@ -41,11 +41,11 @@ export function DragAndDropController($element, $timeout) {
   $element.bind('dragleave', handleDragLeave);
   $element.bind('drop', handleDrop);
 }
-export const dragAndDropComponent = {
-    template: require('../views/drag_and_drop.pug'),
-    controller: DragAndDropController,
-    controllerAs: 'drag_and_drop',
-    bindings: {
-      file: '='
-    }
+export const fileDropComponent = {
+  template: require('../views/file_drop'),
+  controller: FileDropController,
+  controllerAs: 'file_drop',
+  bindings: {
+    file: '='
+  }
 };

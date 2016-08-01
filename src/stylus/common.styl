@@ -11,7 +11,6 @@ body
 body
   // font-family "ProximaNova"
   font-size 12px
-  overflow hidden
   & > svg
     size 0
 
@@ -19,6 +18,25 @@ svg
   size 100%
   display block
   fill inherit
+
+#accordion
+  .panel-heading
+    padding 0
+  
+  .panel-title
+    a
+      display block
+      size 100%
+      padding 10px 15px
+      &:hover
+      &:focus
+        text-decoration none
+  .checkbox
+    padding-left 20px
+.btn
+  min-width 140px
+  .glyphicon
+    margin 0 5px
 
 .spinner
   animation spin 1s infinite linear
