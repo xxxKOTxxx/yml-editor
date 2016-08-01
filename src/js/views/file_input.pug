@@ -1,0 +1,8 @@
+input#file(
+  name="file"
+  type="file"
+  ng-model="file_input.input"
+  onchange="angular.element(this).scope().file_input.fileHandler(this.files)"
+  ng-show="false"
+)
+button.btn.btn-large.btn-block(ng-click="file_input.selectFile()") Upload Your File

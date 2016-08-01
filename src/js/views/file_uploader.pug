@@ -1,0 +1,16 @@
+.file-uploader 
+  .alert.alert-danger(
+    ng-repeat="error in errors"
+    ng-if="!error.valid"
+  )
+    button.close(
+      type="button"
+      ng-click="hideError(error)"
+    ) &times;
+    p {{error.message}}
+  drag-and-drop(file="file_uploader.file")
+  file-input(file="file_uploader.file")
+  file-data(
+    file="file_uploader.file"
+    data="file_uploader.data"
+  )

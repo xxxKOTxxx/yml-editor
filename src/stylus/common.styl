@@ -1,0 +1,30 @@
+/* Common styles */
+html
+body
+  width 100%
+  min-height 100%
+  padding-top 40px
+  // font-family roboto
+  // font-size font-size
+  // color text-color
+  // background-color background-color
+body
+  // font-family "ProximaNova"
+  font-size 12px
+  overflow hidden
+  & > svg
+    size 0
+
+svg
+  size 100%
+  display block
+  fill inherit
+
+.spinner
+  animation spin 1s infinite linear
+
+@keyframes spin
+  0%
+    transform rotate(0deg)
+  100%
+    transform rotate(359deg)

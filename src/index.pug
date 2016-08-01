@@ -1,0 +1,52 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="description" content="YML Editor")
+    title YML Editor
+    link(rel="stylesheet" href="css/styles.css")
+  body(ng-app="app")
+    // (ng-controller="MainCtrl as main")
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner.col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
+        .navbar-header
+          .navbar-brand YML Editor
+          
+    #accordion.panel-group.col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a(
+              data-toggle='collapse'
+              data-parent='#accordion'
+              href='#file-uploader'
+            ) 1. Choose file
+        #file-uploader.panel-collapse.collapse.in
+          .panel-body
+            file-uploader
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a#settings-link(
+              data-toggle='collapse'
+              data-parent='#accordion'
+              href='#settings'
+            ) 2. Manage settings
+        #settings.panel-collapse.collapse
+          .panel-body
+
+      .panel.panel-default
+        .panel-heading
+          h4.panel-title
+            a(
+              data-toggle='collapse'
+              data-parent='#accordion'
+              href='#result'
+            ) 3. Get result!
+        #result.panel-collapse.collapse
+          .panel-body
+
+    script(src="js/bundle.js")

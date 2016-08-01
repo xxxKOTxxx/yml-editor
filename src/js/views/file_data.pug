@@ -1,0 +1,29 @@
+.file-data(ng-if="file_data.file")
+  table.table
+    thead
+      tr
+        th(width="100%") Name
+        th Size
+        th Status
+    tbody
+      tr
+        td
+          strong {{file_data.file.name}}
+        td
+          span.file-size {{file_data.file.size | fileSize}}
+        td.text-center
+          span(ng-show='file_data.file.valid && file_data.data')
+            i.glyphicon.glyphicon-ok.icon-success
+          span(ng-show='!file_data.file.valid')
+            i.glyphicon.glyphicon-remove.icon-error
+          span.glyphicon.glyphicon-refresh.spinner(ng-show='file_data.file.valid && !file_data.data')
+  .controls
+    .btn.btn-danger(ng-click="file_data.removeFile()")
+      i.glyphicon.glyphicon-trash
+      span Remove file
+    .btn.btn-primary.pull-right(
+      ng-class="{disabled: !file_data.data}"
+      ng-click="file_data.nextStep()"
+    )
+      i.glyphicon.glyphicon-ok
+      span Next step
