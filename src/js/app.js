@@ -1,6 +1,7 @@
 require('../index.pug');
 require('../stylus/index.styl');
-require('bootstrap-webpack');
+// require('bootstrap-webpack');
+require("bootstrap-webpack!../../bootstrap.config.js");
 require('xlsx/dist/xlsx.full.min');
 
 import angular from 'angular';
