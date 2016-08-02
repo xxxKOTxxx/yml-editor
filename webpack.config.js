@@ -6,32 +6,34 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const koutoSwiss = require('kouto-swiss');
 
 const PATH = {
-  app:    path.resolve(__dirname, '/src'),
-  dist:   path.resolve(__dirname, '/www'),
-  root:   __dirname,
-  public: '/',
-  entry:  './js/app',
-  output: '/js/bundle.js',
+  public:       '/',
+  entry:        './js/app',
+  output:       'js/bundle.js',
+  root:         __dirname,
+  app:          path.join(__dirname, '/src'),
+  dist:         path.join(__dirname, '/www'),
+  node_modules: path.resolve(__dirname, 'node_modules'),
+  template:     path.join(__dirname, '/src/index'),
 }
 
 const appRoot = path.join(__dirname, '/src');
 const outputRoot = path.join(__dirname, '/www');
 module.exports = {
-  context: appRoot,
+  context: PATH.app,
   entry: [
-    './js/app'
+    PATH.entry
   ],
   output: {
-    path: path.join(__dirname, 'www'),
-    publicPath: '/',
-    filename: '/js/bundle.js',
+    path: PATH.dist,
+    publicPath: PATH.public,
+    filename: PATH.output,
   },
   watch: true,
   devtool: 'source-map',
   resolve: {
     modulesDirectories: [
-      'src',
-      'node_modules',
+      PATH.app,
+      PATH.node_modules,
     ],
     extensions: [
       '',
@@ -49,29 +51,27 @@ module.exports = {
       'woff2',
       'gif',
       'png',
+      'jpg',
       'jpeg',
-      'jpg'
     ],
   },
   plugins: [
     new CleanWebpackPlugin(['www'], {
-      root: __dirname,
+      root: PATH.root,
       verbose: true, 
       dry: false,
-      exclude: ['']
+      exclude: []
     }),
     new HtmlWebpackPlugin({
       title: 'Title',
-      chunks: ['application', 'vendors'],
       filename: 'index.html',
-      template: path.join(appRoot, 'index.pug'),
-      
+      template: PATH.template,
       minify: {
         collapseWhitespace: true,
         removeComments: true,
         removeRedundantAttributes: true,
         removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true
+        removeStyleLinkTypeAttributes: true,
       }
     }),
     new ExtractTextPlugin('css/styles.css'),
