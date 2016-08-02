@@ -6,29 +6,29 @@
       type="button"
       ng-click="hideError(error)"
     ) &times;
-    p Please upload settings file!
+    p(ng-bind="('alerts.upload' | translate)")
   
   label.checkbox
     input(
-    type="checkbox"
-    ng-model="settings.ready"
+      type="checkbox"
+      ng-model="settings.ready"
     )
-    | Approve data
+    span(ng-bind="('settings.approve' | translate)")
   
   label.checkbox
     input(
-    type="checkbox"
-    ng-model="settings.remove_code"
+      type="checkbox"
+      ng-model="settings.remove_code"
     )
-    | Remove product code
+    span(ng-bind="('settings.remove_code' | translate)")
   
   label.checkbox
     input(
-    type="checkbox"
-    ng-model="settings.show_table"
-    ng-change="settings.toggleTable(settings.show_table)"
+      type="checkbox"
+      ng-model="settings.show_table"
+      ng-change="settings.toggleTable(settings.show_table)"
     )
-    | Show table
+    span(ng-bind="('settings.show_table' | translate)")
   
   #collapsing-table.collapse.in
     settings-data(
@@ -41,10 +41,10 @@
       ng-click="settings.prevStep()"
     )
       i.glyphicon.glyphicon-chevron-left
-      span Previous step
+      span(ng-bind="('controls.prev_step' | translate)")
     .btn.btn-primary.pull-right(
       ng-click="settings.nextStep()"
       ng-class="{disabled: !settings.data || !settings.ready}"
     )
-      span Next step
+      span(ng-bind="('controls.next_step' | translate)")
       i.glyphicon.glyphicon-chevron-right

@@ -7,17 +7,17 @@ export function FileDropController($element, $timeout) {
     }
     event.dataTransfer.effectAllowed = 'copy';
     return false;
-  };
+  }
 
   function handleDragEnter(event) {
     $(event.target).addClass('over');
     handleDragOver(event);
-  };
+  }
 
   function handleDragLeave(event) {
     $(event.target).removeClass('over');
     handleDragOver(event);
-  };
+  }
 
   function handleDrop(event) {
     event.stopPropagation();
@@ -25,11 +25,10 @@ export function FileDropController($element, $timeout) {
     $(event.target).removeClass('over');
     let files = event.dataTransfer.files;
     let file = files[0];
-    console.log('handleDrop',file)
     $timeout(function() {
       $ctrl.file = file;
     });
-  };
+  }
 
   this.handleDragEnter = handleDragEnter;
   this.handleDragOver = handleDragOver;

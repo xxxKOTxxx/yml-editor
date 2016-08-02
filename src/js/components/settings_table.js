@@ -1,7 +1,6 @@
 function SettingsTableController() {
   let $ctrl = this;
   $ctrl.table = this.table;
-  console.log('$ctrl.table',$ctrl.table)
 }
 export const settingsTableComponent = {
   template: require('../views/settings_table'),

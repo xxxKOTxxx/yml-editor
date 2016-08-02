@@ -1,10 +1,20 @@
 require('../index.pug');
+// import template from '../index.pug';
 require('../stylus/index.styl');
-// require('bootstrap-webpack');
+
+// require('socket.io');
+require('angular-cookies');
+require('angular-translate');
+require('angular-translate-storage-local');
+require('angular-translate-storage-cookie');
+
 require("bootstrap-webpack!../../bootstrap.config.js");
+
 require('xlsx/dist/xlsx.full.min');
 
 import angular from 'angular';
+
+import { headerComponent } from './components/header';
 
 import { mainComponent } from './components/main';
 
@@ -17,13 +27,18 @@ import { settingsComponent } from './components/settings';
 import { settingsDataComponent } from './components/settings_data';
 import { settingsTableComponent } from './components/settings_table';
 
+import { translateConfiguration } from './configurations/translate_configuration';
+
 import { XlsxToJsonService } from './services/xlsx_to_json';
 
 import { fileSize } from './filters/file_size';
 
-const app = angular.module('app', []);
+const app = angular.module('app', ['ngCookies', 'pascalprecht.translate']);
+// const app = angular.module('app', ['btford.socket-io', 'ngCookies', 'pascalprecht.translate']);
 
 app
+  .component('header', headerComponent)
+
   .component('main', mainComponent)
   
   .component('file', fileComponent)
@@ -34,6 +49,8 @@ app
   .component('settings', settingsComponent)
   .component('settingsData', settingsDataComponent)
   .component('settingsTable', settingsTableComponent)
+
+  .config(translateConfiguration)
 
   .service('XlsxToJson', XlsxToJsonService)
 

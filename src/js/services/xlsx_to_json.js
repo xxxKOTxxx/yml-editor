@@ -5,8 +5,8 @@ export class XlsxToJsonService {
 
   getData(file) {
     let read_as_binary_string = this.read_as_binary_string;
-    let fixData = this._fixData
-    let toJson = this._toJson
+    let fixData = this._fixData;
+    let toJson = this._toJson;
     let reader = new FileReader();
     return new Promise(function(resolve, reject) {
       reader.onload = function(event) {
@@ -31,14 +31,14 @@ export class XlsxToJsonService {
     });
   }
 
-  _fixData = function(data) {
+  _fixData(data) {
     var o = "", l = 0, w = 10240;
     for(; l<data.byteLength/w; ++l) o+=String.fromCharCode.apply(null,new Uint8Array(data.slice(l*w,l*w+w)));
     o+=String.fromCharCode.apply(null, new Uint8Array(data.slice(l*w)));
     return o;
   }
 
-  _toJson = function(workbook) {
+  _toJson(workbook) {
     var result = {};
     workbook.SheetNames.forEach(function(sheetName) {
       var roa = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);

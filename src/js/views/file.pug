@@ -7,7 +7,11 @@
       type="button"
       ng-click="hideError(error)"
     ) &times;
-    p {{error.message}}
+    p(
+      translate="{{error.message}}"
+      translate-values="{max_file_size: file.settings.max_file_size}"
+    )
+    
   file-drop(file="file.file")
   file-input(file="file.file")
   file-data(

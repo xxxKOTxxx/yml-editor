@@ -6,7 +6,7 @@
           data-toggle='collapse'
           data-parent='#accordion'
           href='#file-uploader'
-        ) Step 1: Choose file
+          ng-bind="('steps.step' | translate) + ' 1: ' + ('steps.1' | translate)")
     #file-uploader.panel-collapse.collapse.in
       .panel-body
         file(
@@ -20,7 +20,7 @@
           data-toggle='collapse'
           data-parent='#accordion'
           href='#settings'
-        ) Step 2: Manage settings
+          ng-bind="('steps.step' | translate) + ' 2: ' + ('steps.2' | translate)")
     #settings.panel-collapse.collapse
       .panel-body
         settings(
@@ -34,6 +34,6 @@
           data-toggle='collapse'
           data-parent='#accordion'
           href='#result'
-        ) Step 3: Get result!
+          ng-bind="('steps.step' | translate) + ' 3: ' + ('steps.3' | translate)")
     #result.panel-collapse.collapse
       .panel-body

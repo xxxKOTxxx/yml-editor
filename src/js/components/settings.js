@@ -5,10 +5,8 @@ function SettingsController() {
   $ctrl.remove_code = this.remove_code;
   $ctrl.show_table = this.show_table = true;
   let table = $('#collapsing-table');
-  console.log('DataSettings', this.data)
   function toggleTable(value) {
     let direction = value ? 'show' : 'hide';
-  console.log('toggleTable', value, direction)
     table.collapse(direction);
   }
   function nextStep() {

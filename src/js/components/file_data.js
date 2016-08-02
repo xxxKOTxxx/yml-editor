@@ -1,4 +1,4 @@
-function FileDataController($filter) {
+function FileDataController($translate) {
   let $ctrl = this;
   $ctrl.file = this.file;
   $ctrl.data = this.data;

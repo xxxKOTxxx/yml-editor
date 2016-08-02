@@ -1,0 +1,36 @@
+.navbar.navbar-inverse.navbar-static-top
+  //- .navbar-inner.col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2.col-lg-6.col-lg-offset-3
+  .container
+    .navbar-header
+
+      button.navbar-toggle.collapsed(
+        type='button'
+        data-toggle='collapse'
+        data-target='#navbar'
+        aria-expanded='false'
+        aria-controls='navbar'
+      )
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+
+      .navbar-brand(ng-bind="'header.title' | translate")
+      
+    #navbar.navbar-collapse.collapse
+      ul.languages.nav.navbar-nav.navbar-right
+        li
+          a.language(
+            ng-class="{active: header.getLanguage() == 'en'}"
+            ng-click="header.setLanguage('en')"
+            title="{{ 'header.language.en' | translate }}"
+          ) 
+            .image.en
+            .name.visible-xs-inline(ng-bind="'header.language.en' | translate")
+        li
+          a.language(
+            ng-class="{active: header.getLanguage() == 'ru'}"
+            ng-click="header.setLanguage('ru')"
+            title="{{ 'header.language.ru' | translate }}"
+          ) 
+            .image.ru
+            .name.visible-xs-inline(ng-bind="'header.language.ru' | translate")

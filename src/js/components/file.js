@@ -1,8 +1,7 @@
-function FileController($scope, XlsxToJson) {
+function FileController($scope, $translate, XlsxToJson) {
   let ctrl = this;
   ctrl.file = this.file;
   ctrl.data = this.data;
-
   let settings = {
     mime_types: [
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -14,15 +13,16 @@ function FileController($scope, XlsxToJson) {
     ],
     max_file_size: 100,
   };
+  ctrl.settings = settings;
 
   $scope.errors = {
     mime_type: {
       valid: true,
-      message: 'Invalid file type. File must be one of following types: XLS / XLSX / XLSB / XLSM / XML / ODS'
+      message: 'alerts.mime_type'
     },
     file_size: {
       valid: true,
-      message: 'File must be smaller than ' + settings.max_file_size + ' MB'
+      message: 'alerts.file_size'
     }
   };
 
@@ -37,7 +37,7 @@ function FileController($scope, XlsxToJson) {
     }
     $scope.errors.mime_type.valid = result;
     return result;
-  };
+  }
 
   function checkFileSize(file_size) {
     let result = false;
@@ -46,16 +46,15 @@ function FileController($scope, XlsxToJson) {
     }
     $scope.errors.file_size.valid = result;
     return result;
-  };
+  }
 
   function checkFile(file) {
     let size_valid = ctrl.checkFileSize(file.size);
     let type_valid = ctrl.checkMimeType(file.type);
-    return size_valid && type_valid
-  };
+    return size_valid && type_valid;
+  }
 
   function handleFile(file) {
-    console.log('handleFile',file)
     if(file == (void(0))) {
       return;
     }
@@ -72,15 +71,14 @@ function FileController($scope, XlsxToJson) {
           $scope.$apply();
         });
     }
-  };
+  }
 
   ctrl.checkMimeType = checkMimeType;
   ctrl.checkFileSize = checkFileSize;
   ctrl.checkFile = checkFile;
   ctrl.handleFile = handleFile;
 
-
-  $scope.$watch('file.file', handleFile)
+  $scope.$watch('file.file', handleFile);
 }
 export const fileComponent = {
   template: require('../views/file'),

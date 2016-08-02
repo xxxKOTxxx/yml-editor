@@ -2,15 +2,15 @@
   table.table
     thead
       tr
-        th(width="100%") Name
-        th Size
-        th Status
+        th.file-name(ng-bind="('file.name' | translate)")
+        th.file-size(ng-bind="('file.size' | translate)")
+        th(ng-bind="('file.status' | translate)")
     tbody
       tr
         td
-          strong {{file_data.file.name}}
+          strong(ng-bind="file_data.file.name")
         td
-          span.file-size {{file_data.file.size | fileSize}}
+          span.file-size(ng-bind="(file_data.file.size | fileSize: 'size') + ('file_size_units.'+(file_data.file.size | fileSize: 'units') | translate)")
         td.text-center
           span(ng-show='file_data.file.valid && file_data.data')
             i.glyphicon.glyphicon-ok.icon-success
@@ -20,10 +20,10 @@
   .controls
     .btn.btn-danger(ng-click="file_data.removeFile()")
       i.glyphicon.glyphicon-trash
-      span Remove file
+      span(ng-bind="('controls.remove_file' | translate)")
     .btn.btn-primary.pull-right(
       ng-class="{disabled: !file_data.data}"
       ng-click="file_data.nextStep()"
     )
-      span Next step
+      span(ng-bind="('controls.next_step' | translate)")
       i.glyphicon.glyphicon-chevron-right

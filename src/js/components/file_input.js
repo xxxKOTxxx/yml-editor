@@ -3,15 +3,14 @@ function FileInputController($timeout) {
   $ctrl.file = this.file;
   this.input = null;
   function fileHandler(event) {
-    console.log('fileHandler',event[0])
     $timeout(function() {
       $ctrl.file = event[0];
     });
-  };
+  }
 
   function selectFile() {
     $('#file').click();
-  };
+  }
 
   this.fileHandler = fileHandler;
   this.selectFile = selectFile;
