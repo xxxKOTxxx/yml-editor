@@ -1,20 +1,31 @@
+FRONTEND
+  send process data
+  xml url presets
+  check xls sheets
+  sort table
+  edit table
+  multiple file select
+  loader on xls
+  connection status footer
+  fix images stylus
 
-path wpc
+SERVER
+  processing module
+  statistics
+  clean categories
 
-multiple file select
+SETTINGS/BOTH
+  add sockets
+  progress socket
++ webpack path object
 
-sort table
-edit table
+UNSORTED
 
-xml url presets
 
-progress express
 
-loader on xls
 
-check xls sheets
 
-webpack path object
 
-add sockets
+
+
 

@@ -13,12 +13,14 @@ const PATH = {
   app:              path.join(__dirname, '/src'),
   dist:             path.join(__dirname, '/www'),
   node_modules:     path.resolve(__dirname, 'node_modules'),
+  bower_components: path.resolve(__dirname, 'bower_components'),
   template:         path.join(__dirname, '/src/index'),
-  bootstrap_config: path.join(__dirname, 'bootstrap.config.js')
-}
+  stylus:           path.resolve(__dirname, 'src/stylus'),
+  stylus_variables: path.resolve(__dirname, 'src/stylus/*/variables.styl'),
+  images:           path.resolve(__dirname, 'src/images/'),
+  bootstrap_config: path.join(__dirname, 'bootstrap.config.js'),
+};
 
-const appRoot = path.join(__dirname, '/src');
-const outputRoot = path.join(__dirname, '/www');
 module.exports = {
   context: PATH.app,
   entry: [
@@ -30,7 +32,7 @@ module.exports = {
     filename: PATH.output,
   },
   watch: true,
-  devtool: 'source-map',
+  devtool: 'cheap-inline-source-map',
   resolve: {
     modulesDirectories: [
       PATH.app,
@@ -40,20 +42,20 @@ module.exports = {
       '',
       '.js',
       '.es6',
-      '.coffee',
       '.json',
-      '.styl',
-      '.css',
+      '.coffee',
       '.pug',
-      'otf',
-      'svg',
-      'ttf',
-      'woff',
-      'woff2',
-      'gif',
-      'png',
-      'jpg',
-      'jpeg',
+      '.css',
+      '.styl',
+      '.gif',
+      '.png',
+      '.jpg',
+      '.jpeg',
+      '.svg',
+      '.otf',
+      '.ttf',
+      '.woff',
+      '.woff2',
     ],
   },
   plugins: [
@@ -102,29 +104,29 @@ module.exports = {
       {
         test: /\.(pug|jade)$/,
         include: [
-          path.resolve(__dirname, 'src'),
+          PATH.app,
         ],
         loader: 'pug-html'
       },
       {
         test: /\.styl$/,
         include: [
-          path.resolve(__dirname, 'src/stylus/'),
+          PATH.stylus,
         ],
         exclude: [
-          path.resolve(__dirname, 'src/*/variables.styl'),
+          PATH.stylus_variables,
         ],
         loader: ExtractTextPlugin.extract('style', 'css!stylus'),
       },
       {
         test: /\.(jpeg|jpg|png|gif|svg)$/i,
         include: [
-          path.resolve(__dirname, 'src/images/'),
+          PATH.images,
         ],
         exclude: [
-          path.resolve(__dirname, 'node_modules'),
+          PATH.node_modules,
         ],
-        loader: 'url?name=/images/[name].[ext]!image-webpack'
+        loader: 'file?name=images/[name].[ext]!image-webpack'
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
@@ -132,19 +134,19 @@ module.exports = {
       },
       {
         test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=application/octet-stream&name=./fonts/[name].[ext]'
+        loader: 'url?limit=10000&mimetype=application/octet-stream&name=fonts/[name].[ext]'
       },
       {
         test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=image/svg+xml&name=./fonts/[name].[ext]'
+        loader: 'url?limit=10000&mimetype=image/svg+xml&name=fonts/[name].[ext]'
       },
       {
         test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff&name=./fonts/[name].[ext]'
+        loader: 'url?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]'
       },
       {
         test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url?limit=10000&mimetype=application/font-woff&name=./fonts/[name].[ext]'
+        loader: 'url?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]'
       },
       {
         test: /bootstrap\/js\//,
@@ -152,26 +154,29 @@ module.exports = {
       },
       { // for third-party minified scripts, don't process require()
         test: /\.min\.js$/,
-        include: /(node_modules|bower_components)/,
+        include: [
+          PATH.node_modules,
+          PATH.bower_components,
+        ],
         loader: 'script'
       },
       {
         test: /\.coffee$/,
         include: [
-          path.resolve(__dirname, 'src'),
+          PATH.app,
         ],
         exclude: [
-          path.resolve(__dirname, 'node_modules'),
+          PATH.node_modules,
         ],
         loader: 'coffee'
       },
       {
         test: /\.(js|es6)$/,
         include: [
-          path.resolve(__dirname, 'src'),
+          PATH.app,
         ],
         exclude: [
-          path.resolve(__dirname, 'node_modules'),
+          PATH.node_modules,
         ],
         loader: 'ng-annotate!babel'
       },
