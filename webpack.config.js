@@ -96,6 +96,7 @@ module.exports = {
         exclude: [
           PATH.node_modules,
           PATH.bootstrap_config,
+          'ws',
         ],
         loader : 'jshint'
       }

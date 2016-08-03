@@ -46,6 +46,7 @@
     "sax": "^1.2.1",
     "script-loader": "^0.7.0",
     "socket.io": "^1.4.8",
+    "socket.io-client": "^1.4.8",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.1",

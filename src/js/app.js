@@ -1,12 +1,13 @@
 require('../stylus/index.styl');
 
-// require('socket.io');
+require("bootstrap-webpack!../../bootstrap.config.js");
+
+require('socket.io-client');
+
 require('angular-cookies');
 require('angular-translate');
 require('angular-translate-storage-local');
 require('angular-translate-storage-cookie');
-
-require("bootstrap-webpack!../../bootstrap.config.js");
 
 require('xlsx/dist/xlsx.full.min');
 

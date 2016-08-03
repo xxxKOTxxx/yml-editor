@@ -7,7 +7,7 @@ FRONTEND
   multiple file select
   loader on xls
   connection status footer
-  fix images stylus
++ fix images stylus
 
 SERVER
   processing module
@@ -20,7 +20,7 @@ SETTINGS/BOTH
 + webpack path object
 
 UNSORTED
-
+? socketio-auth
 
 
 
