@@ -1,4 +1,6 @@
 
+path wpc
+
 multiple file select
 
 sort table
@@ -13,3 +15,6 @@ loader on xls
 check xls sheets
 
 webpack path object
+
+add sockets
+

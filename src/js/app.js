@@ -1,5 +1,3 @@
-require('../index.pug');
-// import template from '../index.pug';
 require('../stylus/index.styl');
 
 // require('socket.io');

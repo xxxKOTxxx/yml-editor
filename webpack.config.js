@@ -6,14 +6,15 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const koutoSwiss = require('kouto-swiss');
 
 const PATH = {
-  public:       '/',
-  entry:        './js/app',
-  output:       'js/bundle.js',
-  root:         __dirname,
-  app:          path.join(__dirname, '/src'),
-  dist:         path.join(__dirname, '/www'),
-  node_modules: path.resolve(__dirname, 'node_modules'),
-  template:     path.join(__dirname, '/src/index'),
+  public:           '/',
+  entry:            './js/app',
+  output:           'js/bundle.js',
+  root:             __dirname,
+  app:              path.join(__dirname, '/src'),
+  dist:             path.join(__dirname, '/www'),
+  node_modules:     path.resolve(__dirname, 'node_modules'),
+  template:         path.join(__dirname, '/src/index'),
+  bootstrap_config: path.join(__dirname, 'bootstrap.config.js')
 }
 
 const appRoot = path.join(__dirname, '/src');
@@ -90,7 +91,10 @@ module.exports = {
     preLoaders: [
       {
         test   : /\.(js|es6)$/,
-        exclude: /(node_modules|bootstrap.config.js)/,
+        exclude: [
+          PATH.node_modules,
+          PATH.bootstrap_config,
+        ],
         loader : 'jshint'
       }
     ],
