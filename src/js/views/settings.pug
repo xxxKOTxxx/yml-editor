@@ -18,13 +18,6 @@
   label.checkbox
     input(
       type="checkbox"
-      ng-model="settings.remove_code"
-    )
-    span(ng-bind="('settings.remove_code' | translate)")
-  
-  label.checkbox
-    input(
-      type="checkbox"
       ng-model="settings.show_table"
       ng-change="settings.toggleTable(settings.show_table)"
     )

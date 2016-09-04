@@ -2,8 +2,6 @@ require('../stylus/index.styl');
 
 require("bootstrap-webpack!../../bootstrap.config.js");
 
-require('socket.io-client');
-
 require('angular-cookies');
 require('angular-translate');
 require('angular-translate-storage-local');
@@ -13,7 +11,7 @@ require('xlsx/dist/xlsx.full.min');
 
 import angular from 'angular';
 
-import { headerComponent } from './components/header';
+import { appHeaderComponent } from './components/header';
 
 import { mainComponent } from './components/main';
 
@@ -26,17 +24,21 @@ import { settingsComponent } from './components/settings';
 import { settingsDataComponent } from './components/settings_data';
 import { settingsTableComponent } from './components/settings_table';
 
+import { processComponent } from './components/process';
+
+import { appFooterComponent } from './components/footer';
+
 import { translateConfiguration } from './configurations/translate_configuration';
 
 import { XlsxToJsonService } from './services/xlsx_to_json';
+import { socket } from './services/socket';
 
 import { fileSize } from './filters/file_size';
 
 const app = angular.module('app', ['ngCookies', 'pascalprecht.translate']);
-// const app = angular.module('app', ['btford.socket-io', 'ngCookies', 'pascalprecht.translate']);
 
 app
-  .component('header', headerComponent)
+  .component('appHeader', appHeaderComponent)
 
   .component('main', mainComponent)
   
@@ -48,9 +50,14 @@ app
   .component('settings', settingsComponent)
   .component('settingsData', settingsDataComponent)
   .component('settingsTable', settingsTableComponent)
+  
+  .component('process', processComponent)
+
+  .component('appFooter', appFooterComponent)
 
   .config(translateConfiguration)
 
+  .service('socket', socket)
   .service('XlsxToJson', XlsxToJsonService)
 
   .filter('fileSize', fileSize);

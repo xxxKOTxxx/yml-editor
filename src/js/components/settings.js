@@ -2,7 +2,6 @@ function SettingsController() {
   let $ctrl = this;
   $ctrl.data = this.data;
   $ctrl.ready = this.ready;
-  $ctrl.remove_code = this.remove_code;
   $ctrl.show_table = this.show_table = true;
   let table = $('#collapsing-table');
   function toggleTable(value) {
@@ -10,7 +9,7 @@ function SettingsController() {
     table.collapse(direction);
   }
   function nextStep() {
-    if(!$ctrl.data) {
+    if(!$ctrl.data || !$ctrl.ready) {
       return;
     }
     $('#process-link').click();

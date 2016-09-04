@@ -20,8 +20,19 @@ l10n =
 
   settings:
     approve: 'Подтверждаю правильность данных'
-    remove_code: 'Удалить код товара'
     show_table: 'Показать таблицу'
+
+  process:
+    remove_code: 'Удалить код товара'
+    minification: 'Минифицировать XML'
+    url: 'Укажите адрес XML файла для обработки'
+    run: 'Запустить обработку!'
+
+  footer:
+    disconnected: 'Оффлайн'
+    connected: 'Онлайн'
+    author: 'Автор'
+    mail: 'Написать автору'
 
   controls: 
     remove_file: 'Удалить файл'

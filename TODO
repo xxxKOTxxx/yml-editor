@@ -7,7 +7,16 @@ FRONTEND
   multiple file select
   loader on xls
   connection status footer
+  preload fonts
+  open deleted file bug
+  clean bootstrap
 + fix images stylus
+  check url!
+  enter start + tabindex
+  result file name
+  case config
+  
+
 
 SERVER
   processing module

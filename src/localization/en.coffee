@@ -20,8 +20,19 @@ l10n =
 
   settings:
     approve: 'Approve data'
-    remove_code: 'Remove product code'
     show_table: 'Show table'
+
+  process:
+    remove_code: 'Remove product code'
+    minification: 'Minify XML'
+    url: 'Enter url of XML file for processing'
+    run: 'Run process!'
+
+  footer:
+    disconnected: 'Offline'
+    connected: 'Online'
+    author: 'Author'
+    mail: 'Send e-mail to author'
 
   controls: 
     remove_file: 'Remove file'

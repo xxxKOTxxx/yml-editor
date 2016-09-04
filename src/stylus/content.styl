@@ -1,9 +1,35 @@
 @import "variables.styl"
 
 /* Content styles */
-.settings-table
-  width 100%
 
+#accordion
+  .panel
+    .panel-heading
+      padding 0
+      color: #999
+      transition color 0.2s linear
+      &:hover
+        color: #333
+    &.active
+      .panel-heading
+        color: #333
+      .panel-title
+        font-weight bold
+  
+  .panel-title
+    a
+      display block
+      size 100%
+      padding 10px 15px
+      &:hover
+      &:focus
+        text-decoration none
+    i
+      margin-right 10px
+        
+  .checkbox
+    padding-left 20px
+    
 .icon
   &-success
     color #5CB85C
@@ -11,3 +37,7 @@
     color #bd362f
 .controls
   margin 20px 0
+  
+.settings-table
+  width 100%
+  

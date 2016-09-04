@@ -1,3 +1,18 @@
 @import "variables.styl"
 
 /* Footer styles */
+.connect
+  relative false
+  &:after
+    content ''
+    size 8px
+    display block
+    absolute 2px false 0  -13px
+    margin auto
+    background-color #f00
+    border-radius 50%
+  &.connected
+    &:after
+      background-color #0f0
+      
+    

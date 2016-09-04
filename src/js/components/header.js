@@ -1,4 +1,4 @@
-function HeaderController($translate) {
+function AppHeaderController($translate) {
   let $ctrl = this;
 
   function getLanguage() {
@@ -16,9 +16,9 @@ function HeaderController($translate) {
   this.setLanguage = setLanguage;
   this.getLanguage = getLanguage;
 }
-export const headerComponent = {
+export const appHeaderComponent = {
   template: require('../views/header'),
-  controller: HeaderController,
+  controller: AppHeaderController,
   controllerAs: 'header',
   bindings: {}
 };
