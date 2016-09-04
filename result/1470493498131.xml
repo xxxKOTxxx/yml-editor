@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE yml_catalog SYSTEM "yml.dtd">
+<!-- COMMENT -->
+<![CDATA['SomeData']]>
+<yml_catalog date="2016-08-04 14:32">
+  <shop>
+    <name>domosti.ru</name>
+    <company>domosti.ru</company>
+    <url>http://www.domosti.ru</url>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <categories></categories>
+    <offers>
+      <offer id="107882" type="vendor.model" bid="0" cbid="0" available="true">
+        <url></url>
+        <price></price>
+        <currencyId></currencyId>
+        <categoryId></categoryId>
+        <picture></picture>
+        <delivery></delivery>
+        <vendor></vendor>
+        <model></model>
+        <description></description>
+        <param name="Серия"></param>
+        <param name="Цвет"></param>
+        <param name="Материал"></param>
+        <param name="Длина излива" unit="см"></param>
+        <param name="Состав набора"></param>
+        <param name="Тип"></param>

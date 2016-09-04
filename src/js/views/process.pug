@@ -1,0 +1,32 @@
+.process
+  
+  label.checkbox
+    input(
+      type="checkbox"
+      ng-model="process.remove_code"
+    )
+    span(ng-bind="('process.remove_code' | translate)")
+  
+  label.checkbox
+    input(
+      type="checkbox"
+      ng-model="process.minification"
+    )
+    span(ng-bind="('process.minification' | translate)")
+
+  label(
+    for="url"
+    ng-bind="('process.url' | translate)"
+  )
+  input#url.form-control(
+    type="text"
+    ng-model="process.url"
+  )
+
+
+  .controls
+    .process.btn.btn-success.center-block(
+      ng-click="process.sendData()"
+    )
+      i.glyphicon.glyphicon-ok
+      span(ng-bind="('process.run' | translate)")

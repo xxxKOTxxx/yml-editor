@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE yml_catalog SYSTEM "yml.dtd">
+<!-- COMMENT -->
+<![CDATA['SomeData']]>
+<yml_catalog date="2016-08-04 14:32">
+  <shop>
+    <name>domosti.ru</name>
+    <company>domosti.ru</company>
+    <url>http://www.domosti.ru</url>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <categories></categories>
+    <offers>

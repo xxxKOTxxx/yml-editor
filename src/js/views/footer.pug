@@ -1,0 +1,13 @@
+footer.navbar.navbar-inverse.navbar-fixed-bottom.row-fluid
+  .navbar-inner
+    .container
+      p.connect.navbar-text.pull-left(
+        ng-class="{connected: footer.connect}"
+        ng-bind="('footer.' + footer.connection) | translate"
+      )
+      a.no-decoration.navbar-text.pull-right(
+        href="mailto:kotboriska@gmail.com"
+        ng-title="'footer.mail' | translate"
+      )
+        span(ng-bind="('footer.author' | translate) + ' '")
+        span  xxxKOTxxx
